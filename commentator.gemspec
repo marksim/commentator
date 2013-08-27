@@ -7,16 +7,18 @@ require "commentator/version"
 Gem::Specification.new do |s|
   s.name        = "commentator"
   s.version     = Commentator::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of Commentator."
-  s.description = "TODO: Description of Commentator."
+  s.authors     = ["Mark Simoneau"]
+  s.email       = ["mark@quarternotecoda.com"]
+  s.homepage    = "http://github.com/marksim/commentator"
+  s.summary     = "Easily add comments to any model / page in your app with 2 lines of code"
+  s.description = "Provides models, views and easy configuration for comments"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 4.0.0"
+  s.add_dependency "coffee-script"
+  s.add_dependency "jquery-rails"
 
   s.add_development_dependency "sqlite3"
 end

@@ -1,0 +1,17 @@
+<div class="comment" id="comment-<%=comment.id%>">
+  <div class="well">
+    <% if commentator_current_user == comment.owner %><%= link_to "×", [commentator, comment], :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close' %><% end %>
+    <p><%= comment.body %></p>
+    <% unless local_assigns[:nested_replies] === false %>
+      <div class="replies">
+        <%- comment.replies.each do |reply| %><%= render reply %><%- end %>
+      </div>
+      <% unless local_assigns[:read_only] %>
+        <div class="reply pull-right">
+          <%= link_to "Reply", [commentator, :reply, comment], remote: true, class: 'comment-reply' %>
+        </div>
+      <% end %>
+      <div class="clear" />
+    <% end %>
+  </div>
+</div>

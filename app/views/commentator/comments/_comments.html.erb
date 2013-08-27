@@ -1,0 +1,9 @@
+<div class="comments">
+  <%- comments.each do |comment| %>
+    <%= render 'commentator/comments/comment', {comment: comment}.merge(local_assigns) %>
+  <% end %>
+</div>
+<% unless local_assigns[:read_only] %>
+<hr/>
+<%= render 'commentator/comments/form', local_assigns %>
+<% end %>

@@ -1,0 +1,15 @@
+<%
+comment = local_assigns[:comment]
+reply = comment && comment.parent_id
+%>
+<div class="well">
+<%= form_for([commentator, comment || Commentator::Comment.new(commentable: commentable)], remote: true, html: { class: 'comment-form', data: { append: reply ? "#comment-#{comment.parent_id} > .replies" : '.comments' } }) do |f| %>
+  <%= f.text_area :body, { rows: 5, style: "width:99%" } %>
+  <%= f.hidden_field :parent_id %>
+  <%= f.hidden_field :commentable_type %>
+  <%= f.hidden_field  :commentable_id %>
+  <div class="pull-right">
+    <%= f.submit "Post #{reply ? 'Reply' : 'Comment'}", class: 'btn btn-small' %>
+  </div>
+<% end %>
+</div>

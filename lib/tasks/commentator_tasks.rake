@@ -1,4 +1,3 @@
 # desc "Explaining what the task does"
-# task :commentator do
-#   # Task goes here
-# end
+task :commentator => ['commentator:install:migrations'] do
+end

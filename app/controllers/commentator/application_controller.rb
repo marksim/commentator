@@ -1,4 +1,5 @@
 module Commentator
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
+    skip_before_filter :verify_authenticity_token
   end
 end
