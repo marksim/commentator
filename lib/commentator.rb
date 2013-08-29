@@ -2,6 +2,10 @@ require "commentator/engine"
 require "commentator/model"
 
 module Commentator
+  class << self
+    alias_method :configure, :tap
+  end
+
   mattr_accessor :owner_class
   @@owner_class = "User"
 
@@ -10,4 +14,5 @@ module Commentator
 
   mattr_accessor :current_commenter_method
   @@current_commenter_method = :current_user
+
 end
