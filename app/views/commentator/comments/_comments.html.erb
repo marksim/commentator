@@ -3,7 +3,7 @@
     <%= render 'commentator/comments/comment', {comment: comment}.merge(local_assigns) %>
   <% end %>
 </div>
-<% unless local_assigns[:read_only] %>
+<% unless local_assigns[:read_only] || local_assigns[:replies_only] %>
 <hr/>
 <%= render 'commentator/comments/form', local_assigns %>
 <% end %>

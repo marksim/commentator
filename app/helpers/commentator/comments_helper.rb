@@ -9,7 +9,7 @@ module Commentator
                                commentable_id: commentable.id,
                                parent_id: nil)
       render 'commentator/comments/comments',
-             commentable: commentable, comments: comments
+        { commentable: commentable, comments: comments }.merge(options)
     end
   end
 end

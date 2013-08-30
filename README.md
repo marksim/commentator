@@ -22,6 +22,11 @@ gem 'commentator'
 rake commentator # Installs the DB Migration
 ```
 
+```ruby
+# in config/routes.rb
+mount Commentator::Engine => "/commentator"
+```
+
 ```javascript 
 # in application.js 
 //= require commentator/comments
@@ -29,9 +34,8 @@ rake commentator # Installs the DB Migration
 
 ```ruby
 # in application_controller.rb
-helper Commentator::CommentsHelper
-
 def authorize_comment
+  # you have access to @commentable
   true # Your logic here
 end
 ```
@@ -68,6 +72,21 @@ my_model.comments
 
 ## Examples
 
-## Documentation
+In Views
 
-see wiki
+``` 
+# No new comments or replies
+= comments_for(@my_model, :read_only => true)
+
+# Replies to existing comments only
+= comments_for(@my_model, :replies_only => true)
+
+# No Nested Comments
+= comments_for(@my_model, :no_replies => true)
+```
+
+In code
+```
+# if Commentator::Model is included in the model, you get
+my_model.comments
+```

@@ -6,7 +6,7 @@
       <div class="replies">
         <%- comment.replies.each do |reply| %><%= render reply %><%- end %>
       </div>
-      <% unless local_assigns[:read_only] %>
+      <% unless local_assigns[:read_only] || local_assigns[:no_replies] %>
         <div class="reply pull-right">
           <%= link_to "Reply", [commentator, :reply, comment], remote: true, class: 'comment-reply' %>
         </div>
