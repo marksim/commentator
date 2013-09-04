@@ -27,5 +27,5 @@ jQuery ->
   # Replying to Comments
   $(document)
     .on "ajax:success", ".comment-reply", (evt, data, status, xhr) ->
-      $(this).closest('.reply').replaceWith(xhr.responseText)
+      $(this).closest('.comment').siblings('.reply-form').replaceWith(xhr.responseText)
 

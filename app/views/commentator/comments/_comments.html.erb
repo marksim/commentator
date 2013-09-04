@@ -1,9 +1,12 @@
-<div class="comments">
+<div class="post-block post-comments clearfix">
+  <h3><i class="icon-comments"></i>Comments (<%= comments.count %>)</h3>
+
+  <ul class="comments comments-top-level">
   <%- comments.each do |comment| %>
     <%= render 'commentator/comments/comment', {comment: comment}.merge(local_assigns) %>
   <% end %>
+  </ul>
 </div>
 <% unless local_assigns[:read_only] || local_assigns[:replies_only] %>
-<hr/>
-<%= render 'commentator/comments/form', local_assigns %>
+  <%= render 'commentator/comments/form', local_assigns.merge(:include_title => true) %>
 <% end %>
