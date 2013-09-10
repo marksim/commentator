@@ -1,5 +1,7 @@
 <div class="post-block post-comments clearfix">
-  <h3><i class="icon-comments"></i>Comments (<%= comments.count %>)</h3>
+  <% unless local_assigns[:title] === false %>
+    <h3><i class="icon-comments"></i>Comments (<%= comments.count %>)</h3>
+  <% end %>
 
   <ul class="comments comments-top-level">
   <%- comments.each do |comment| %>
