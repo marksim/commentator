@@ -4,7 +4,7 @@ reply = comment && comment.parent_id
 %>
 <div class="post-block post-leave-comment">
   <% unless local_assigns[:prompt] === false %><h5><%= local_assigns[:prompt] || "Leave a Comment" %></h3><% end %>
-<%= form_for([commentator, comment || Commentator::Comment.new(commentable: commentable)], remote: true, html: { class: 'comment-form', data: { append: reply ? "#comment-#{comment.parent_id} > .replies" : '.comments-top-level' } }) do |f| %>
+<%= form_for([commentator, comment || Commentator::Comment.new(commentable: commentable)], remote: true, html: { class: 'comment-form', data: { append: reply ? "#comment-#{comment.parent_id} > .replies" : "#comments-#{slugify(commentable.to_s)}" } }) do |f| %>
   <%= f.text_area :body, { rows: 5, style: "width:99%" } %>
   <%= f.hidden_field :parent_id %>
   <%= f.hidden_field :commentable_type %>
