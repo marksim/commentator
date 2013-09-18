@@ -10,5 +10,5 @@
   </ul>
 </div>
 <% unless local_assigns[:read_only] || local_assigns[:replies_only] %>
-  <%= render 'commentator/comments/form', local_assigns.merge(:include_title => true) %>
+  <%= render 'commentator/comments/form', local_assigns %>
 <% end %>
