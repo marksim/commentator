@@ -3,7 +3,7 @@
     <h3><i class="icon-comments"></i>Comments (<%= comments.count %>)</h3>
   <% end %>
 
-  <ul class="comments comments-top-level" id="comments-<%= slugify(commentable.to_s) %>">
+  <ul class="comments comments-top-level <%= local_assigns[:nested_replies] === false ? 'no-reply-buttons' : '' %>" id="comments-<%= slugify(commentable.to_s) %>">
   <%- comments.each do |comment| %>
     <%= render 'commentator/comments/comment', {comment: comment}.merge(local_assigns) %>
   <% end %>
