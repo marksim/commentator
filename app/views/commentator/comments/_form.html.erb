@@ -10,7 +10,7 @@ reply = comment && comment.parent_id
   <%= f.hidden_field :commentable_type %>
   <%= f.hidden_field  :commentable_id %>
   <div class="btn-toolbar">
-    <%= f.submit "Post #{reply ? 'Reply' : 'Comment'}", class: 'btn btn-primary btn-large' %>
+    <%= f.submit local_assigns[:button_text] || ("Post #{reply ? 'Reply' : 'Comment'}"), class: 'btn btn-primary btn-large' %>
   </div>
 <% end %>
 </div>
