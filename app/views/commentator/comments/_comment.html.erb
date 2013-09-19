@@ -1,7 +1,7 @@
 <li id="comment-<%= comment.id %>">
 <div class="comment">
   <div class="thumbnail">
-    <img class="avatar" alt="" src="<%= comment.owner.try(:image_url) %>">
+    <%= image_tag(comment.owner.try(:image_url), class: 'avatar', alt: '') %>
   </div>
   <div class="comment-block">
     <div class="comment-arrow"></div>
